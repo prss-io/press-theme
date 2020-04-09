@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "lib": ["es6", "dom"],
+        "noImplicitAny": false,
+        "noImplicitThis": true,
+        "strictNullChecks": false,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "noUnusedLocals": false,
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react"
+    },
+    "include": ["./src"]
+}
