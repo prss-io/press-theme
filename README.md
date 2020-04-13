@@ -1,6 +1,7 @@
 <p>
-  <img src="https://i.imgur.com/xYLdIQv.png" width="300" />
-  <h2>Press Theme</h2>
+  <img src="https://i.imgur.com/xYLdIQv.png" width="500" />
+  <h2>Press</h2>
+  <blockquote>A PRSS Theme</blockquote>
 </p>
 
 <div align="right">
