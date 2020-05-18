@@ -1,0 +1,36 @@
+html,
+body {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+::selection {
+    background: #616161;
+    color: white;
+}
+
+.clickable {
+    transition: opacity 0.1s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.5;
+    }
+
+    &:active {
+        opacity: 0.3;
+    }
+}
+
+.disabled {
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 0.5;
+    }
+
+    &:active {
+        opacity: 0.5;
+    }
+}

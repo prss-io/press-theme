@@ -1,0 +1,25 @@
+.page footer.page-footer {
+    background: #f7f7f7;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+
+    .footer-shoutout {
+        opacity: 0.6;
+        transition: 0.3s opacity ease-in-out;
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        span {
+            line-height: 15px;
+        }
+    }
+}

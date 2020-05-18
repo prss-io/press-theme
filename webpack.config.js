@@ -3,6 +3,7 @@ const glob = require('glob');
 const PrettierPlugin = require("prettier-webpack-plugin");
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const getPackageJson = require('./scripts/getPackageJson');
 
 const {
@@ -14,7 +15,7 @@ const {
 } = getPackageJson();
 
 function modify(buffer) {
-  const { title, type, parser} = JSON.parse(buffer.toString());
+  const { title, type, parser, siteVars } = JSON.parse(buffer.toString());
 
   const newManifest = {
     name,
@@ -24,7 +25,8 @@ function modify(buffer) {
     homepage,
     license,
     type,
-    parser
+    parser,
+    siteVars
   }
 
   const manifestJSON = JSON.stringify(newManifest, null, 2);
@@ -47,6 +49,25 @@ module.exports = {
     path: path.resolve(__dirname, 'build', name),
     libraryTarget: 'var',
     library: 'PRSSComponent'
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        /**
+         * Dependencies are disclosed in a LICENSE file
+         */
+        extractComments: {
+          condition: /^\**!|@preserve|@license|@cc_on/i,
+          filename: (file, fileData) => {
+            return file.replace(/\.(\w+)($|\?)/, '.$1.LICENSE.txt$2');
+          },
+          banner: (licenseFile) => {
+            return `License information can be found in ${licenseFile}`;
+          },
+        },
+      })
+    ],
   },
   module: {
     rules: [
@@ -93,13 +114,23 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js']
   },
+  performance: {
+    hints: false
+  },
   externals: {
     "react": "React",
     "react-dom": "ReactDOM"
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new PrettierPlugin(),
+    new PrettierPlugin({
+      printWidth: 80,
+      tabWidth: 4,
+      semi: true,
+      singleQuote: true,
+      jsxSingleQuote: false,
+      bracketSpacing: true
+    }),
     new CopyPlugin([
       { from: 'public', to: './' }
     ]),

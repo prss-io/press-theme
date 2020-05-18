@@ -8,25 +8,20 @@ import {
     getJsonProp,
     timeAgo,
     getItems,
-    getPathUrl,
     formattedDate
 } from 'prss';
+
+import cx from 'classnames';
+
 import Header from '../resources/components/Header';
 import Footer from '../resources/components/Footer';
 import Page from '../resources/components/Page';
 import Hero from '../resources/components/Hero';
-import { truncateStr } from '../resources/services/utils';
 
-const Home = data => {
+const Blog = data => {
     init(data);
 
-    const {
-        heroTitle,
-        heroMessage,
-        heroImageUrl,
-        featuredImageUrl,
-        featuredImageAlt
-    } = getProp('vars') as IVars;
+    const { heroTitle, heroMessage, heroImageUrl } = getProp('vars') as IVars;
 
     const links = getJsonProp('vars.links') as ILink[];
 
@@ -37,31 +32,13 @@ const Home = data => {
     const items = getItems('post', true);
 
     return (
-        <Page className="page-home">
+        <Page className="page-blog">
             <Header />
             {(heroTitle || title) && (
                 <Hero imageUrl={heroImageUrl}>
                     <h1 className="hero-title">{heroTitle || title}</h1>
                     {heroMessage && (
                         <div className="hero-message mt-2">{heroMessage}</div>
-                    )}
-                    {links && (
-                        <div className="links mt-4">
-                            {links.map((link, index) => (
-                                <a
-                                    href={link.url}
-                                    target="_blank"
-                                    rel="noopener"
-                                    key={'link' + index}
-                                    className="mr-3"
-                                >
-                                    {link.icon && (
-                                        <i class={`fa ${link.icon} mr-1`}></i>
-                                    )}
-                                    <span>{link.text}</span>
-                                </a>
-                            ))}
-                        </div>
                     )}
                 </Hero>
             )}
@@ -79,23 +56,24 @@ const Home = data => {
                                 )}
 
                                 <section className="mb-3">
-                                    <h2 className="section-title">
-                                        <span>Latest Posts</span>
-                                        <a href={getPathUrl('blog')}>more</a>
-                                    </h2>
-
-                                    <div className="card-columns mt-4 mb-4">
+                                    <div>
                                         {items.map(post => {
                                             return (
-                                                <div className="card">
-                                                    {post.vars
-                                                        ?.featuredImageUrl && (
-                                                        <a
-                                                            className="card-image"
-                                                            href={post.url}
-                                                        >
+                                                <div className="card d-flex flex-row">
+                                                    <a
+                                                        className={cx(
+                                                            'card-img-left',
+                                                            {
+                                                                'card-has-img': !!post
+                                                                    .vars
+                                                                    ?.featuredImageUrl
+                                                            }
+                                                        )}
+                                                        href={post.url}
+                                                    >
+                                                        {post.vars
+                                                            ?.featuredImageUrl && (
                                                             <img
-                                                                className="card-img-top"
                                                                 src={
                                                                     post.vars
                                                                         ?.featuredImageUrl
@@ -106,23 +84,21 @@ const Home = data => {
                                                                 }
                                                                 loading="lazy"
                                                             />
-                                                        </a>
-                                                    )}
+                                                        )}
+                                                    </a>
 
-                                                    <div className="card-body">
+                                                    <div className="card-body col">
                                                         {post.title && (
                                                             <a
                                                                 className="card-title"
                                                                 href={post.url}
                                                             >
-                                                                {truncateStr(
-                                                                    post.title
-                                                                )}
+                                                                {post.title}
                                                             </a>
                                                         )}
 
                                                         {post.content && (
-                                                            <p className="card-text mt-1">
+                                                            <p className="card-text">
                                                                 {post.content}
                                                             </p>
                                                         )}
@@ -166,4 +142,4 @@ const Home = data => {
     );
 };
 
-export default Home;
+export default Blog;
