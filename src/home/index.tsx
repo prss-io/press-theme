@@ -15,7 +15,6 @@ import Header from '../resources/components/Header';
 import Footer from '../resources/components/Footer';
 import Page from '../resources/components/Page';
 import Hero from '../resources/components/Hero';
-import { truncateStr } from '../resources/services/utils';
 
 const Home = data => {
     init(data);
@@ -84,64 +83,70 @@ const Home = data => {
                                         <a href={getPathUrl('blog')}>more</a>
                                     </h2>
 
-                                    <div className="card-columns mt-4 mb-4">
-                                        {items.map(post => {
+                                    <div className="row mt-4 mb-4">
+                                        {items.slice(0, 6).map(post => {
                                             return (
-                                                <div className="card">
-                                                    {post.vars
-                                                        ?.featuredImageUrl && (
-                                                        <a
-                                                            className="card-image"
-                                                            href={post.url}
-                                                        >
-                                                            <img
-                                                                className="card-img-top"
-                                                                src={
-                                                                    post.vars
-                                                                        ?.featuredImageUrl
-                                                                }
-                                                                alt={
-                                                                    post.vars
-                                                                        ?.featuredImageAlt
-                                                                }
-                                                                loading="lazy"
-                                                            />
-                                                        </a>
-                                                    )}
-
-                                                    <div className="card-body">
-                                                        {post.title && (
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div className="card mb-4">
+                                                        {post.vars
+                                                            ?.featuredImageUrl && (
                                                             <a
-                                                                className="card-title"
+                                                                className="card-image"
                                                                 href={post.url}
                                                             >
-                                                                {truncateStr(
-                                                                    post.title
-                                                                )}
+                                                                <img
+                                                                    className="card-img-top"
+                                                                    src={
+                                                                        post
+                                                                            .vars
+                                                                            ?.featuredImageUrl
+                                                                    }
+                                                                    alt={
+                                                                        post
+                                                                            .vars
+                                                                            ?.featuredImageAlt
+                                                                    }
+                                                                    loading="lazy"
+                                                                />
                                                             </a>
                                                         )}
 
-                                                        {post.content && (
-                                                            <p className="card-text mt-1">
-                                                                {post.content}
-                                                            </p>
-                                                        )}
-
-                                                        {post.createdAt && (
-                                                            <p className="card-text">
-                                                                <small
-                                                                    className="text-muted"
-                                                                    title={formattedDate(
-                                                                        post.createdAt
-                                                                    )}
+                                                        <div className="card-body">
+                                                            {post.title && (
+                                                                <a
+                                                                    className="card-title"
+                                                                    href={
+                                                                        post.url
+                                                                    }
                                                                 >
-                                                                    Posted{' '}
-                                                                    {timeAgo(
-                                                                        post.createdAt
-                                                                    )}
-                                                                </small>
-                                                            </p>
-                                                        )}
+                                                                    {post.title}
+                                                                </a>
+                                                            )}
+
+                                                            {post.content && (
+                                                                <p className="card-text mt-1">
+                                                                    {
+                                                                        post.content
+                                                                    }
+                                                                </p>
+                                                            )}
+
+                                                            {post.createdAt && (
+                                                                <p className="card-text">
+                                                                    <small
+                                                                        className="text-muted"
+                                                                        title={formattedDate(
+                                                                            post.createdAt
+                                                                        )}
+                                                                    >
+                                                                        Posted{' '}
+                                                                        {timeAgo(
+                                                                            post.createdAt
+                                                                        )}
+                                                                    </small>
+                                                                </p>
+                                                            )}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             );

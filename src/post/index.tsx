@@ -65,7 +65,7 @@ const Post = data => {
                                     <h1 className="mb-0">{postTitle}</h1>
                                     {createdAt && (
                                         <div
-                                            className="text-muted mt-2 date post-date d-flex align-items-center"
+                                            className="text-muted mt-3 date post-date d-flex align-items-center"
                                             title={timeAgo(createdAt)}
                                         >
                                             <i class={`fa fa-clock-o mr-2`}></i>

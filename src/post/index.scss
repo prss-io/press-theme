@@ -1,12 +1,41 @@
 .page.page-post {
-    h1 {
-        font-size: 33px;
+    a {
+        color: #333;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         font-family: 'Roboto', sans-serif;
         font-weight: 400;
     }
 
+    h1 {
+        font-size: 33px;
+        font-weight: 400;
+    }
+
+    h3 {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 30px 0;
+    }
+
+    h5 {
+        margin-top: 35px;
+        margin-bottom: 20px;
+    }
+
     strong {
         font-weight: 700;
+    }
+
+    iframe {
+        width: 100%;
+        min-height: 300px;
     }
 
     main .main-container section {
@@ -19,6 +48,31 @@
 
     .post-content {
         font-size: 20px;
+
+        ol,
+        ul {
+            list-style: none;
+            counter-reset: item;
+            padding: 0;
+            margin: 30px 0;
+        }
+
+        li {
+            counter-increment: item;
+            margin-bottom: 20px;
+            border: 2px solid rgba(0, 0, 0, 0.15);
+            padding: 15px 20px;
+            border-radius: 10px;
+            position: relative;
+            font-size: 18px;
+            line-height: 1.58;
+        }
+
+        img[style] {
+            margin-left: 50%;
+            transform: translateX(-50%);
+            max-width: 100%;
+        }
     }
 
     .featured-image {
