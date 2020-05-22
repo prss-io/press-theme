@@ -3,14 +3,41 @@
         font-size: 36px;
     }
 
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+    }
+
+    blockquote {
+        font-size: 18px;
+        font-style: italic;
+        line-height: 30px;
+        text-align: left;
+        border-left: 3px solid #333;
+        padding: 5px 15px;
+        margin: 15px 0;
+    }
+
     main .main-container section {
         padding: 0;
         border-bottom: none;
 
         h2 {
-            font-size: 25px;
+            font-size: 28px;
             padding: 15px 0;
+            margin-bottom: 30px;
+            margin-top: 20px;
             color: #3d4854;
+            border-bottom: 1px solid #dedfe0;
+        }
+
+        a:not(.btn) {
+            color: #969696;
         }
     }
 
@@ -20,6 +47,28 @@
 
     .post-content {
         font-size: 20px;
+
+        ul {
+            list-style: none;
+            counter-reset: item;
+            padding: 0;
+            margin: 30px 0;
+        }
+
+        li {
+            counter-increment: item;
+            margin-bottom: 10px;
+            border: 2px solid rgba(0, 0, 0, 0.15);
+            padding: 15px 20px;
+            border-radius: 10px;
+            position: relative;
+            font-size: 18px;
+            line-height: 1.58;
+
+            a:not(.btn) {
+                color: #171717 !important;
+            }
+        }
     }
 
     .featured-image {
@@ -67,8 +116,6 @@
                 }
 
                 ul {
-                    display: none;
-
                     li {
                         a {
                             padding-left: 55px;

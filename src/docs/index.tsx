@@ -173,7 +173,7 @@ const Docs = data => {
                             </div>
                         )}
 
-                        <div className="col">
+                        <div className="col col-md-9">
                             <div className="content">
                                 {content && content.trim().length && (
                                     <section className="post-content mb-3 pb-5">

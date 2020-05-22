@@ -9,7 +9,8 @@ import {
     timeAgo,
     getItems,
     getPathUrl,
-    formattedDate
+    formattedDate,
+    truncateStr
 } from 'prss';
 import Header from '../resources/components/Header';
 import Footer from '../resources/components/Footer';
@@ -119,7 +120,10 @@ const Home = data => {
                                                                         post.url
                                                                     }
                                                                 >
-                                                                    {post.title}
+                                                                    {truncateStr(
+                                                                        post.title,
+                                                                        65
+                                                                    )}
                                                                 </a>
                                                             )}
 
