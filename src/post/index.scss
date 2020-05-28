@@ -49,6 +49,10 @@
     .post-content {
         font-size: 20px;
 
+        img {
+            max-width: 100%;
+        }
+
         ol,
         ul {
             list-style: none;

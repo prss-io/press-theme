@@ -1,6 +1,7 @@
 import '../styles/Page.scss';
 
 import React, { FunctionComponent, ReactNode } from 'react';
+//import Head from './Head';
 import cx from 'classnames';
 
 interface IProps {
@@ -9,7 +10,12 @@ interface IProps {
 }
 
 const Page: FunctionComponent<IProps> = ({ children, className }) => {
-    return <div className={cx('page', className)}>{children}</div>;
+    return (
+        <div className={cx('page', className)}>
+            {/*<Head />*/}
+            {children}
+        </div>
+    );
 };
 
 export default Page;

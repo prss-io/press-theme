@@ -1,20 +1,27 @@
 import '../styles/Aside.scss';
 
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect, useRef } from 'react';
 import { getProp } from 'prss';
+import cx from 'classnames';
 
-interface IProps {}
+interface IProps {
+    name: string;
+}
 
-const Aside: FunctionComponent<IProps> = () => {
-    const { asideHtml } = getProp('vars');
-    return (
-        <div
-            className="page-aside"
-            dangerouslySetInnerHTML={{
-                __html: asideHtml
-            }}
-        />
-    );
+const Aside: FunctionComponent<IProps> = ({ name }) => {
+    const vars = getProp('vars');
+    const asideName = vars[name];
+    const divRef = useRef(null);
+
+    if (!asideName) return null;
+
+    useEffect(() => {
+        const html = document.createRange().createContextualFragment(asideName);
+        divRef.current.innerHtml = '';
+        divRef.current.appendChild(html);
+    }, []);
+
+    return <div ref={divRef} className={cx('page-aside', name)} />;
 };
 
 export default Aside;

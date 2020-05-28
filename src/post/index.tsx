@@ -19,6 +19,8 @@ import Header from '../resources/components/Header';
 import Footer from '../resources/components/Footer';
 import Page from '../resources/components/Page';
 import Hero from '../resources/components/Hero';
+import { isset } from '../resources/services/utils';
+import Aside from '../resources/components/Aside';
 
 const Post = data => {
     init(data);
@@ -28,7 +30,8 @@ const Post = data => {
         heroMessage,
         heroImageUrl,
         featuredImageUrl,
-        featuredImageAlt
+        featuredImageAlt,
+        sidebarAsideHtml
     } = getProp('vars') as IVars;
 
     const links = getJsonProp('vars.links') as ILink[];
@@ -61,7 +64,7 @@ const Post = data => {
                                     />
                                 )}
 
-                                <div class="post-title-container mb-2">
+                                {/*<div class="post-title-container mb-2">
                                     <h1 className="mb-0">{postTitle}</h1>
                                     {createdAt && (
                                         <div
@@ -75,6 +78,35 @@ const Post = data => {
                                             </span>
                                         </div>
                                     )}
+                                    </div>*/}
+
+                                <div class="post-title-container mb-2">
+                                    <div className="row justify-content-between">
+                                        <div className="col-12 col-lg d-lg-flex flex-column justify-content-center">
+                                            <h1 className="mb-0">
+                                                {postTitle}
+                                            </h1>
+                                            {createdAt && (
+                                                <div
+                                                    className="text-muted mt-3 date post-date d-flex align-items-center"
+                                                    title={timeAgo(createdAt)}
+                                                >
+                                                    <i
+                                                        class={`fa fa-clock-o mr-2`}
+                                                    ></i>
+                                                    <span>
+                                                        Published on{' '}
+                                                        {formattedDate(
+                                                            createdAt
+                                                        )}
+                                                    </span>
+                                                </div>
+                                            )}
+                                        </div>
+                                        <div className="col-12 col-lg-4 mt-3 mt-lg-0">
+                                            <Aside name="asideHtml" />
+                                        </div>
+                                    </div>
                                 </div>
 
                                 {content && content.trim().length && (
@@ -158,13 +190,16 @@ const Post = data => {
                                 </section>
                             </div>
                         </div>
-                        {sidebarHtml && (
-                            <div
-                                className="col-3"
-                                dangerouslySetInnerHTML={{
-                                    __html: sidebarHtml
-                                }}
-                            />
+                        {isset(sidebarHtml || sidebarAsideHtml) && (
+                            <div className="col-3 page-sidebar">
+                                <div
+                                    className="page-sidebar-content"
+                                    dangerouslySetInnerHTML={{
+                                        __html: sidebarHtml
+                                    }}
+                                />
+                                <Aside name="sidebarAsideHtml" />
+                            </div>
                         )}
                     </div>
                 </div>

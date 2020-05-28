@@ -24,6 +24,22 @@ interface IVars {
      * Aside
      */
     asideHtml?: string;
+    sidebarAsideHtml?: string;
+    inlineAside?: string;
+    footerCta?: string;
+    warningHtml?: string;
+    contentFooterHtml?: string;
+
+    /**
+     * SEO
+     */
+    metaDescription?: string;
+    metaLocale?: string;
+    metaUrl?: string;
+    metaSiteName?: string;
+    metaRobots?: string;
+    metaTitle?: string;
+    metaImage?: string;
 }
 
 interface ILink {

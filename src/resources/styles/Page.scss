@@ -41,6 +41,19 @@
         border-radius: 3px;
     }
 
+    .page-aside {
+        min-height: 125px;
+        border-radius: 5px;
+    }
+
+    .alert {
+        font-size: initial;
+    }
+
+    .alert.alert-warning a:not(.btn) {
+        color: #463a00 !important;
+    }
+
     main {
         min-height: calc(100vh - (350px + 65px));
         overflow: hidden;

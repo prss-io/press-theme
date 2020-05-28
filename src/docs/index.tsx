@@ -11,6 +11,7 @@ import Page from '../resources/components/Page';
 import Hero from '../resources/components/Hero';
 import Menu from '../resources/components/Menu';
 import Aside from '../resources/components/Aside';
+import { isset } from '../resources/services/utils';
 
 const Docs = data => {
     init(data);
@@ -20,7 +21,10 @@ const Docs = data => {
         heroMessage,
         heroImageUrl,
         featuredImageUrl,
-        sidebarMenu
+        sidebarMenu,
+        footerCta,
+        warningHtml,
+        contentFooterHtml
     } = getProp('vars') as IVars;
 
     const { content, uuid: postId, title: postTitle } = getProp('item');
@@ -49,34 +53,14 @@ const Docs = data => {
                 ? scrollTop - COMBINED_HEADER_HEIGHT
                 : 0;
 
-        const sidebarElem = document.querySelector('.docs-sidebar') as any;
-        const asideElem = document.querySelector('.page-aside') as any;
-
-        const sidebarElemHeight = sidebarElem ? sidebarElem.offsetHeight : 0;
-        const asideElemHeight = asideElem ? asideElem.offsetHeight : 0;
-
-        const menuHeight =
-            sidebarElemHeight - (menuScrollTop + asideElemHeight);
-
-        if (!isSmallWidth) {
-            setMenuTop(menuScrollTop);
-            setMenuHeight(menuHeight);
-            setSmallWidthMode(false);
-        } else {
-            setMenuTop(null);
-            setMenuHeight(null);
-            setSmallWidthMode(true);
-        }
-
-        if (menuScrollTop) {
-            setMenuFixed(true);
-        } else {
-            setMenuFixed(false);
-        }
+        setSmallWidthMode(isSmallWidth);
+        setMenuFixed(!!menuScrollTop);
+        handleSidebarMaxHeight();
     };
 
     const onResize = e => {
         handleSmallWidth();
+        handleSidebarMaxHeight();
     };
 
     const handleSmallWidth = () => {
@@ -91,6 +75,22 @@ const Docs = data => {
         }
     };
 
+    const handleSidebarMaxHeight = () => {
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const isSmallWidth = windowWidth <= 768;
+        const winHeightMinusHeader = windowHeight - HEADER_HEIGHT;
+        const contentElem = document.querySelector('.content') as any;
+        const contentElemHeight = contentElem
+            ? contentElem.offsetHeight + 40
+            : 0;
+
+        const menuHeight = isSmallWidth
+            ? false
+            : Math.max(winHeightMinusHeader, contentElemHeight);
+        setMenuHeight(menuHeight);
+    };
+
     const toggleMenuShow = () => {
         if (smallWidthMode) {
             setShowMenu(!showMenu);
@@ -99,6 +99,7 @@ const Docs = data => {
 
     useEffect(() => {
         handleSmallWidth();
+        handleSidebarMaxHeight();
     });
 
     return (
@@ -123,33 +124,41 @@ const Docs = data => {
                     )}
 
                     <div class="post-title-container">
-                        <h1 className="mb-0">{heroTitle || postTitle}</h1>
-                        {heroMessage && (
-                            <div className="docs-hero-message mt-2">
-                                {heroMessage}
+                        <div className="row">
+                            <div className="col-12 col-lg d-lg-flex flex-column justify-content-center">
+                                <h1 className="mb-0">
+                                    {heroTitle || postTitle}
+                                </h1>
+                                {heroMessage && (
+                                    <div
+                                        className="docs-hero-message mt-2"
+                                        dangerouslySetInnerHTML={{
+                                            __html: heroMessage
+                                        }}
+                                    />
+                                )}
                             </div>
-                        )}
+                            <div className="col-12 col-lg-4 mt-3 mt-lg-0">
+                                <Aside name="asideHtml" />
+                            </div>
+                        </div>
                     </div>
 
                     <div className="row m-0">
-                        {sidebarMenu && (
-                            <div className="col-3 docs-sidebar">
-                                <div
-                                    className="docs-sidebar-inner-container"
-                                    style={{
-                                        marginTop: menuTop
-                                            ? menuTop + 'px'
-                                            : null
-                                    }}
-                                >
+                        {isset(sidebarMenu) && (
+                            <div
+                                className="col-3 docs-sidebar"
+                                style={{
+                                    marginTop: menuTop ? menuTop + 'px' : null,
+                                    maxHeight: menuHeight
+                                        ? menuHeight + 'px'
+                                        : null
+                                }}
+                            >
+                                <div className="docs-sidebar-inner-container">
                                     <Menu
                                         name={sidebarMenu}
                                         ulClassName="sidebar-menu"
-                                        style={{
-                                            height: menuHeight
-                                                ? menuHeight + 'px'
-                                                : null
-                                        }}
                                         prependedComponent={
                                             <Fragment>
                                                 {smallWidthMode && (
@@ -169,35 +178,60 @@ const Docs = data => {
                                         }
                                     />
                                 </div>
-                                <Aside />
                             </div>
                         )}
 
                         <div className="col col-md-9">
                             <div className="content">
-                                {content && content.trim().length && (
-                                    <section className="post-content mb-3 pb-5">
-                                        <div
-                                            className="post-inner-content"
-                                            dangerouslySetInnerHTML={{
-                                                __html: content
-                                            }}
-                                        />
-                                    </section>
-                                )}
+                                <div className="content-top">
+                                    {isset(content || warningHtml) && (
+                                        <section className="post-content mb-3">
+                                            {warningHtml && (
+                                                <div
+                                                    class="alert alert-warning alert-dismissible fade show"
+                                                    role="alert"
+                                                    dangerouslySetInnerHTML={{
+                                                        __html: warningHtml
+                                                    }}
+                                                />
+                                            )}
 
-                                {sidebarMenu && (
-                                    <section>
-                                        <Menu
-                                            name={sidebarMenu}
-                                            ulClassName="docs-footer-menu"
-                                            mode="prev-next"
-                                        />
+                                            <div
+                                                className="post-inner-content mb-5"
+                                                dangerouslySetInnerHTML={{
+                                                    __html: content
+                                                }}
+                                            />
+                                            {isset(footerCta) && (
+                                                <div
+                                                    className="footer-cta"
+                                                    dangerouslySetInnerHTML={{
+                                                        __html: footerCta
+                                                    }}
+                                                />
+                                            )}
+                                        </section>
+                                    )}
+
+                                    {isset(sidebarMenu) && (
+                                        <section>
+                                            <Menu
+                                                name={sidebarMenu}
+                                                ulClassName="docs-footer-menu"
+                                                mode="prev-next"
+                                            />
+                                        </section>
+                                    )}
+                                </div>
+
+                                {isset(contentFooterHtml) && (
+                                    <section className="content-footer">
+                                        <Aside name="contentFooterHtml" />
                                     </section>
                                 )}
                             </div>
                         </div>
-                        {sidebarHtml && (
+                        {isset(sidebarHtml) && (
                             <div
                                 className="col-3"
                                 dangerouslySetInnerHTML={{

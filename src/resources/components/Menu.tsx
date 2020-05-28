@@ -1,5 +1,5 @@
 import React, { FunctionComponent, ReactNode, Fragment } from 'react';
-import { getProp, getItem } from 'prss';
+import { getProp, getItem, hasItem } from 'prss';
 import cx from 'classnames';
 import '../styles/Menu.scss';
 
@@ -78,6 +78,7 @@ const Menu: FunctionComponent<IProps> = ({
                     'menu-item-prev': isPrev,
                     'menu-item-next': isNext
                 })}
+                title={node.title || post.title}
             >
                 {renderItemLabel ? (
                     renderItemLabel(post)
@@ -95,12 +96,19 @@ const Menu: FunctionComponent<IProps> = ({
         );
     };
 
+    const isNodeExpanded = node => {
+        const activeItemId = getProp('item').uuid;
+        return node.key === activeItemId || hasItem(activeItemId, node);
+    };
+
     const defaultRenderItem = (node, parseMenuNode) => {
         const post = getItem(node.key);
         return (
             <li
+                title={node.title || post.title}
                 className={cx({
-                    active: node.key === getProp('item').uuid
+                    active: node.key === getProp('item').uuid,
+                    expanded: isNodeExpanded(node)
                 })}
             >
                 {renderItemLabel ? (

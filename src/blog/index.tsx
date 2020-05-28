@@ -17,11 +17,15 @@ import Header from '../resources/components/Header';
 import Footer from '../resources/components/Footer';
 import Page from '../resources/components/Page';
 import Hero from '../resources/components/Hero';
+import Aside from '../resources/components/Aside';
+import { isset } from '../resources/services/utils';
 
 const Blog = data => {
     init(data);
 
-    const { heroTitle, heroMessage, heroImageUrl } = getProp('vars') as IVars;
+    const { heroTitle, heroMessage, heroImageUrl, sidebarAsideHtml } = getProp(
+        'vars'
+    ) as IVars;
 
     const links = getJsonProp('vars.links') as ILink[];
 
@@ -57,6 +61,7 @@ const Blog = data => {
 
                                 <section className="mb-3">
                                     <div>
+                                        <Aside name="inlineAsideHtml" />
                                         {items.map(post => {
                                             return (
                                                 <div className="card d-flex flex-row">
@@ -126,13 +131,16 @@ const Blog = data => {
                                 </section>
                             </div>
                         </div>
-                        {sidebarHtml && (
-                            <div
-                                className="col-3"
-                                dangerouslySetInnerHTML={{
-                                    __html: sidebarHtml
-                                }}
-                            />
+                        {isset(sidebarHtml || sidebarAsideHtml) && (
+                            <div className="col-3 page-sidebar">
+                                <div
+                                    className="page-sidebar-content"
+                                    dangerouslySetInnerHTML={{
+                                        __html: sidebarHtml
+                                    }}
+                                />
+                                <Aside name="sidebarAsideHtml" />
+                            </div>
                         )}
                     </div>
                 </div>
