@@ -13,6 +13,12 @@
         font-weight: 400;
     }
 
+    h3 {
+        font-size: 25px;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+
     blockquote {
         font-size: 18px;
         font-style: italic;
@@ -34,10 +40,7 @@
             margin-top: 20px;
             color: #3d4854;
             border-bottom: 1px solid #dedfe0;
-        }
-
-        a:not(.btn) {
-            color: #969696;
+            justify-content: unset;
         }
     }
 
@@ -64,10 +67,6 @@
             position: relative;
             font-size: 18px;
             line-height: 1.58;
-
-            a:not(.btn) {
-                color: #171717 !important;
-            }
         }
     }
 

@@ -21,6 +21,11 @@
         }
     }
 
+    b,
+    strong {
+        font-weight: 600;
+    }
+
     // @media (min-width: 1200px) {
     //     .container {
     //         max-width: 1360px;
@@ -39,11 +44,6 @@
         background-color: #f5f5f5;
         border: none;
         border-radius: 3px;
-    }
-
-    .page-aside {
-        min-height: 125px;
-        border-radius: 5px;
     }
 
     .alert {
@@ -71,6 +71,11 @@
                 a {
                     font-size: 21px;
                 }
+            }
+
+            .post-content img[alt] {
+                max-width: 100%;
+                height: auto !important;
             }
 
             .card.text-white blockquote footer {

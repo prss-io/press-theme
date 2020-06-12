@@ -39,32 +39,30 @@ const Home = data => {
     return (
         <Page className="page-home">
             <Header />
-            {(heroTitle || title) && (
-                <Hero imageUrl={heroImageUrl}>
-                    <h1 className="hero-title">{heroTitle || title}</h1>
-                    {heroMessage && (
-                        <div className="hero-message mt-2">{heroMessage}</div>
-                    )}
-                    {links && (
-                        <div className="links mt-4">
-                            {links.map((link, index) => (
-                                <a
-                                    href={link.url}
-                                    target="_blank"
-                                    rel="noopener"
-                                    key={'link' + index}
-                                    className="mr-3"
-                                >
-                                    {link.icon && (
-                                        <i class={`fa ${link.icon} mr-1`}></i>
-                                    )}
-                                    <span>{link.text}</span>
-                                </a>
-                            ))}
-                        </div>
-                    )}
-                </Hero>
-            )}
+            <Hero imageUrl={heroImageUrl}>
+                {heroTitle && <h1 className="hero-title">{heroTitle}</h1>}
+                {heroMessage && (
+                    <div className="hero-message mt-2">{heroMessage}</div>
+                )}
+                {links && (
+                    <div className="links mt-4">
+                        {links.map((link, index) => (
+                            <a
+                                href={link.url}
+                                target="_blank"
+                                rel="noopener"
+                                key={'link' + index}
+                                className="mr-3"
+                            >
+                                {link.icon && (
+                                    <i class={`fa ${link.icon} mr-1`}></i>
+                                )}
+                                <span>{link.text}</span>
+                            </a>
+                        ))}
+                    </div>
+                )}
+            </Hero>
             <main>
                 <div className="container main-container">
                     <div className="row">

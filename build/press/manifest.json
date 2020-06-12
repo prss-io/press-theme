@@ -1,13 +1,11 @@
 {
   "name": "press",
   "title": "Press",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "author": "Francisco Hodge",
-  "homepage": "https://github.com/hodgef/js-library-boilerplate-basic",
+  "homepage": "https://github.com/prss-io/press-theme",
   "license": "GPL-3.0-or-later",
-  "type": "blog",
+  "type": "multi",
   "parser": "react",
-  "siteVars": [
-    "headerImageUrl"
-  ]
+  "siteVars": []
 }

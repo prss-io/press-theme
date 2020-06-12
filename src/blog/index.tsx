@@ -29,8 +29,7 @@ const Blog = data => {
 
     const links = getJsonProp('vars.links') as ILink[];
 
-    const { content } = getProp('item');
-    const { title, url } = getProp('site');
+    const { content, title } = getProp('item');
     const sidebarHtml = getProp('sidebarHtml');
 
     const items = getItems('post', true);

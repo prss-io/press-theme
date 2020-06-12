@@ -1,6 +1,6 @@
 {
     "title": "Press",
-    "type": "blog",
+    "type": "multi",
     "parser": "react",
-    "siteVars": ["headerImageUrl"]
+    "siteVars": []
 }

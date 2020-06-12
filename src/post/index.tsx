@@ -120,13 +120,13 @@ const Post = data => {
                                     </section>
                                 )}
 
-                                <section className="mb-3">
-                                    <h4 className="section-title">
-                                        <span>Explore More</span>
-                                    </h4>
+                                {shuffledItem && (
+                                    <section className="mb-3">
+                                        <h4 className="section-title">
+                                            <span>Explore More</span>
+                                        </h4>
 
-                                    <div className="mt-4 mb-4">
-                                        {shuffledItem && (
+                                        <div className="mt-4 mb-4">
                                             <div className="card mb-3 d-flex flex-row">
                                                 {shuffledItem.vars
                                                     ?.featuredImageUrl && (
@@ -185,9 +185,9 @@ const Post = data => {
                                                     )}
                                                 </div>
                                             </div>
-                                        )}
-                                    </div>
-                                </section>
+                                        </div>
+                                    </section>
+                                )}
                             </div>
                         </div>
                         {isset(sidebarHtml || sidebarAsideHtml) && (
