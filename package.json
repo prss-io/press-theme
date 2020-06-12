@@ -1,6 +1,6 @@
 {
   "name": "press",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Press Theme for PRSS",
   "main": "build/index.js",
   "scripts": {
