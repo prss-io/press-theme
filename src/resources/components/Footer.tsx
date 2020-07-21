@@ -17,7 +17,11 @@ const Footer: FunctionComponent<IProps> = () => {
                 <div className="row">
                     <div className="col">
                         {footerLeft ? (
-                            <span>{footerLeft}</span>
+                            <div
+                                dangerouslySetInnerHTML={{
+                                    __html: footerLeft
+                                }}
+                            ></div>
                         ) : (
                             <span>© {title}</span>
                         )}
