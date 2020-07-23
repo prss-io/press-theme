@@ -46,7 +46,7 @@ module.exports = {
   entry,
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'build', name),
+    path: path.resolve(__dirname, 'build'),
     libraryTarget: 'var',
     library: 'PRSSComponent'
   },
