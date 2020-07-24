@@ -1,37 +1,10 @@
 const path = require('path');
 const glob = require('glob');
 const PrettierPlugin = require("prettier-webpack-plugin");
-const CopyPlugin = require('copy-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const getPackageJson = require('./scripts/getPackageJson');
 
-const {
-  version,
-  name,
-  license,
-  homepage,
-  author = '',
-} = getPackageJson();
-
-function modify(buffer) {
-  const { title, type, parser, siteVars } = JSON.parse(buffer.toString());
-
-  const newManifest = {
-    name,
-    title,
-    version,
-    author: author.replace(/ *\<[^)]*(\)|\>) */g, ""),
-    homepage,
-    license,
-    type,
-    parser,
-    siteVars
-  }
-
-  const manifestJSON = JSON.stringify(newManifest, null, 2);
-  return manifestJSON;
-}
+const { name, version } = getPackageJson();
 
 const entry = glob.sync("./src/*/index.+(js|jsx|ts|tsx)")
     .reduce((x, y) => {
@@ -63,7 +36,7 @@ module.exports = {
             return file.replace(/\.(\w+)($|\?)/, '.$1.LICENSE.txt$2');
           },
           banner: (licenseFile) => {
-            return `License information can be found in ${licenseFile}`;
+            return `License information can be found in https://cdn.jsdelivr.net/npm/${name}@${version}/build/${licenseFile}`;
           },
         },
       })
@@ -122,7 +95,6 @@ module.exports = {
     "react-dom": "ReactDOM"
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new PrettierPlugin({
       printWidth: 80,
       tabWidth: 4,
@@ -130,18 +102,6 @@ module.exports = {
       singleQuote: true,
       jsxSingleQuote: false,
       bracketSpacing: true
-    }),
-    new CopyPlugin([
-      { from: 'public', to: './' }
-    ]),
-    new CopyPlugin([
-      {
-         from: "./public/manifest.json",
-         to:   `./manifest.json`,
-         transform (content, path) {
-             return modify(content)
-         },
-         force: true
-      }])
+    })
   ]
 };

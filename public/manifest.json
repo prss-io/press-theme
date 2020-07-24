@@ -1,6 +1,5 @@
 {
     "title": "Press",
     "type": "blog",
-    "parser": "react",
-    "siteVars": []
+    "parser": "react"
 }
