@@ -1,6 +1,6 @@
 {
   "name": "@hodgef/press-theme",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "Press Theme for PRSS",
   "main": "build/index.js",
   "scripts": {
