@@ -181,7 +181,11 @@ const Docs = data => {
                             </div>
                         )}
 
-                        <div className="col col-md-9">
+                        <div
+                            className={`col ${
+                                isset(sidebarMenu) ? 'col-md-9' : ''
+                            }`}
+                        >
                             <div className="content">
                                 <div className="content-top">
                                     {isset(content || warningHtml) && (
