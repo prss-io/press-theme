@@ -7,5 +7,12 @@
   "license": "MIT",
   "type": "blog",
   "parser": "react",
-  "templates": []
+  "templates": [
+    "blog",
+    "card",
+    "docs",
+    "home",
+    "page",
+    "post"
+  ]
 }
