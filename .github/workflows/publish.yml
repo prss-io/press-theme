@@ -30,7 +30,7 @@ jobs:
         run: |
           git reset --hard
           npm version patch
-          npm run build
+          npm run build && sleep 10
           git add . || true
           git commit -m "Build update" || true
           git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
