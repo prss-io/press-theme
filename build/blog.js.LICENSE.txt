@@ -1,12 +1,12 @@
 /*!
-  Copyright (c) 2017 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
+	Copyright (c) 2018 Jed Watson.
+	Licensed under the MIT License (MIT), see
+	http://jedwatson.github.io/classnames
 */
 
 /*!
- *
- *   prss v1.2.0
+ * 
+ *   prss v1.8.3 - PRSS Client Utilities
  *   https://github.com/prss-io/prss-client
  *
  *   Copyright (c) Francisco Hodge (https://github.com/hodgef)
