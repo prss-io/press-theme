@@ -2,14 +2,7 @@ import '../resources/styles/common.scss';
 import './index.scss';
 
 import React from 'react';
-import {
-    init,
-    getProp,
-    getJsonProp,
-    timeAgo,
-    getItems,
-    formattedDate
-} from 'prss';
+import * as PRSS from 'prss';
 
 import cx from 'classnames';
 
@@ -21,18 +14,22 @@ import Aside from '../resources/components/Aside';
 import { isset } from '../resources/services/utils';
 
 const Blog = data => {
-    init(data);
+    PRSS.init(data);
+    (window as any).PRSS = PRSS;
 
-    const { heroTitle, heroMessage, heroImageUrl, sidebarAsideHtml } = getProp(
-        'vars'
-    ) as IVars;
+    const {
+        heroTitle,
+        heroMessage,
+        heroImageUrl,
+        sidebarAsideHtml
+    } = PRSS.getProp('vars') as IVars;
 
-    const links = getJsonProp('vars.links') as ILink[];
+    const links = PRSS.getJsonProp('vars.links') as ILink[];
 
-    const { content, title } = getProp('item');
-    const sidebarHtml = getProp('sidebarHtml');
+    const { content, title } = PRSS.getProp('item');
+    const sidebarHtml = PRSS.getProp('sidebarHtml');
 
-    const items = getItems('post', true);
+    const items = PRSS.getItems('post', true);
 
     return (
         <Page className="page-blog">
@@ -111,12 +108,12 @@ const Blog = data => {
                                                             <p className="card-text">
                                                                 <small
                                                                     className="text-muted"
-                                                                    title={formattedDate(
+                                                                    title={PRSS.formattedDate(
                                                                         post.createdAt
                                                                     )}
                                                                 >
                                                                     Posted{' '}
-                                                                    {timeAgo(
+                                                                    {PRSS.timeAgo(
                                                                         post.createdAt
                                                                     )}
                                                                 </small>

@@ -1,15 +1,15 @@
 import '../styles/Footer.scss';
 
 import React, { FunctionComponent } from 'react';
-import { getProp } from 'prss';
+import * as PRSS from 'prss';
 
 import prssImg from '../../resources/images/prss-sm.png';
 
 interface IProps {}
 
 const Footer: FunctionComponent<IProps> = () => {
-    const { footerLeft, footerRight } = getProp('vars');
-    const { title } = getProp('site');
+    const { footerLeft, footerRight } = PRSS.getProp('vars');
+    const { title } = PRSS.getProp('site');
 
     return (
         <footer class="page-footer">

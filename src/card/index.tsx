@@ -2,19 +2,22 @@ import '../resources/styles/common.scss';
 import './index.scss';
 
 import React from 'react';
-import { init, getProp } from 'prss';
+import * as PRSS from 'prss';
 import Header from '../resources/components/Header';
 import Footer from '../resources/components/Footer';
 import Page from '../resources/components/Page';
 import Hero from '../resources/components/Hero';
 
 const Post = data => {
-    init(data);
+    PRSS.init(data);
+    (window as any).PRSS = PRSS;
 
-    const { heroTitle, heroMessage, heroImageUrl } = getProp('vars') as IVars;
+    const { heroTitle, heroMessage, heroImageUrl } = PRSS.getProp(
+        'vars'
+    ) as IVars;
 
-    const { content, title: postTitle } = getProp('item');
-    const sidebarHtml = getProp('sidebarHtml');
+    const { content, title: postTitle } = PRSS.getProp('item');
+    const sidebarHtml = PRSS.getProp('sidebarHtml');
 
     return (
         <Page className="page-post">

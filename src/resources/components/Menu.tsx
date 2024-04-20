@@ -1,5 +1,5 @@
 import React, { FunctionComponent, ReactNode, Fragment } from 'react';
-import { getProp, getItem, hasItem } from 'prss';
+import * as PRSS from 'prss';
 import cx from 'classnames';
 import '../styles/Menu.scss';
 
@@ -22,7 +22,7 @@ const Menu: FunctionComponent<IProps> = ({
     style = {},
     prependedComponent = null
 }) => {
-    const menu = getProp(`site.menus.${name}`);
+    const menu = PRSS.getProp(`site.menus.${name}`);
 
     if (!menu) {
         return null;
@@ -54,7 +54,7 @@ const Menu: FunctionComponent<IProps> = ({
 
     const prevNextRenderItem = (node, parseMenuNode) => {
         const activeItemIndex = flattenedMenuNodes.findIndex(
-            curNode => curNode.key === getProp('item').uuid
+            curNode => curNode.key === PRSS.getProp('item').uuid
         );
         const prevItem = flattenedMenuNodes[activeItemIndex - 1]
             ? flattenedMenuNodes[activeItemIndex - 1]
@@ -70,7 +70,7 @@ const Menu: FunctionComponent<IProps> = ({
             return null;
         }
 
-        const post = getItem(node.key);
+        const post = PRSS.getItem(node.key);
 
         return (
             <li
@@ -97,17 +97,17 @@ const Menu: FunctionComponent<IProps> = ({
     };
 
     const isNodeExpanded = node => {
-        const activeItemId = getProp('item').uuid;
-        return node.key === activeItemId || hasItem(activeItemId, node);
+        const activeItemId = PRSS.getProp('item').uuid;
+        return node.key === activeItemId || PRSS.hasItem(activeItemId, node);
     };
 
     const defaultRenderItem = (node, parseMenuNode) => {
-        const post = getItem(node.key);
+        const post = PRSS.getItem(node.key);
         return (
             <li
                 title={node.title || post.title}
                 className={cx({
-                    active: node.key === getProp('item').uuid,
+                    active: node.key === PRSS.getProp('item').uuid,
                     expanded: isNodeExpanded(node)
                 })}
             >

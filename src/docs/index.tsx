@@ -2,7 +2,7 @@ import '../resources/styles/common.scss';
 import './index.scss';
 
 import React, { useState, useEffect, Fragment } from 'react';
-import { init, getProp, getItems } from 'prss';
+import * as PRSS from 'prss';
 import cx from 'classnames';
 
 import Header from '../resources/components/Header';
@@ -14,7 +14,8 @@ import Aside from '../resources/components/Aside';
 import { isset } from '../resources/services/utils';
 
 const Docs = data => {
-    init(data);
+    PRSS.init(data);
+    (window as any).PRSS = PRSS;
 
     const {
         heroTitle,
@@ -25,13 +26,13 @@ const Docs = data => {
         footerCta,
         warningHtml,
         contentFooterHtml
-    } = getProp('vars') as IVars;
+    } = PRSS.getProp('vars') as IVars;
 
-    const { content, uuid: postId, title: postTitle } = getProp('item');
+    const { content, uuid: postId, title: postTitle } = PRSS.getProp('item');
 
-    const sidebarHtml = getProp('sidebarHtml');
+    const sidebarHtml = PRSS.getProp('sidebarHtml');
 
-    const items = getItems('post').filter(item => item.uuid !== postId);
+    const items = PRSS.getItems('post').filter(item => item.uuid !== postId);
 
     const [menuTop, setMenuTop] = useState(0);
     const [menuHeight, setMenuHeight] = useState(0);

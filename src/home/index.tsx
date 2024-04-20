@@ -2,23 +2,15 @@ import '../resources/styles/common.scss';
 import './index.scss';
 
 import React from 'react';
-import {
-    init,
-    getProp,
-    getJsonProp,
-    timeAgo,
-    getItems,
-    getPathUrl,
-    formattedDate,
-    truncateStr
-} from 'prss';
+import * as PRSS from 'prss';
 import Header from '../resources/components/Header';
 import Footer from '../resources/components/Footer';
 import Page from '../resources/components/Page';
 import Hero from '../resources/components/Hero';
 
 const Home = data => {
-    init(data);
+    PRSS.init(data);
+    (window as any).PRSS = PRSS;
 
     const {
         heroTitle,
@@ -26,15 +18,15 @@ const Home = data => {
         heroImageUrl,
         featuredImageUrl,
         featuredImageAlt
-    } = getProp('vars') as IVars;
+    } = PRSS.getProp('vars') as IVars;
 
-    const links = getJsonProp('vars.links') as ILink[];
+    const links = PRSS.getJsonProp('vars.links') as ILink[];
 
-    const { content } = getProp('item');
-    const { title, url } = getProp('site');
-    const sidebarHtml = getProp('sidebarHtml');
+    const { content } = PRSS.getProp('item');
+    const { title, url } = PRSS.getProp('site');
+    const sidebarHtml = PRSS.getProp('sidebarHtml');
 
-    const items = getItems('post', true);
+    const items = PRSS.getItems('post', true);
 
     return (
         <Page className="page-home">
@@ -79,7 +71,9 @@ const Home = data => {
                                 <section className="mb-3">
                                     <h2 className="section-title">
                                         <span>Latest Posts</span>
-                                        <a href={getPathUrl('blog')}>more</a>
+                                        <a href={PRSS.getPathUrl('blog')}>
+                                            more
+                                        </a>
                                     </h2>
 
                                     <div className="row mt-4 mb-4">
@@ -118,7 +112,7 @@ const Home = data => {
                                                                         post.url
                                                                     }
                                                                 >
-                                                                    {truncateStr(
+                                                                    {PRSS.truncateStr(
                                                                         post.title,
                                                                         65
                                                                     )}
@@ -137,12 +131,12 @@ const Home = data => {
                                                                 <p className="card-text">
                                                                     <small
                                                                         className="text-muted"
-                                                                        title={formattedDate(
+                                                                        title={PRSS.formattedDate(
                                                                             post.createdAt
                                                                         )}
                                                                     >
                                                                         Posted{' '}
-                                                                        {timeAgo(
+                                                                        {PRSS.timeAgo(
                                                                             post.createdAt
                                                                         )}
                                                                     </small>

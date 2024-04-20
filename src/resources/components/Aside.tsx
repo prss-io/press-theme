@@ -1,7 +1,7 @@
 import '../styles/Aside.scss';
 
 import React, { FunctionComponent, useEffect, useRef } from 'react';
-import { getProp } from 'prss';
+import * as PRSS from 'prss';
 import cx from 'classnames';
 
 interface IProps {
@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const Aside: FunctionComponent<IProps> = ({ name }) => {
-    const vars = getProp('vars');
+    const vars = PRSS.getProp('vars');
     const asideName = vars[name];
     const divRef = useRef(null);
 

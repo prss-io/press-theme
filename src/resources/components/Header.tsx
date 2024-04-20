@@ -1,7 +1,7 @@
 import '../styles/Header.scss';
 import React, { FunctionComponent, useEffect, useState, useRef } from 'react';
 import cx from 'classnames';
-import { getProp, getItem, getSiteUrl, hasItem, findInStructure } from 'prss';
+import * as PRSS from 'prss';
 import Menu from './Menu';
 
 interface IProps {
@@ -15,9 +15,9 @@ const Header: FunctionComponent<IProps> = ({
     onScrollCallback,
     onResizeCallback
 }) => {
-    const { logoImageUrl } = getProp('vars');
-    const { title, url } = getProp('site');
-    const currentPostId = getProp('item').uuid;
+    const { logoImageUrl } = PRSS.getProp('vars');
+    const { title, url } = PRSS.getProp('site');
+    const currentPostId = PRSS.getProp('item').uuid;
 
     const [scrollTop, setScrollTop] = useState(0);
     const [stickyEnabled, setStickyEnabled] = useState(false);
@@ -65,7 +65,7 @@ const Header: FunctionComponent<IProps> = ({
         return (
             <div className="dropdown-menu">
                 {nodeChildren.map(nodeItem => {
-                    const post = getItem(nodeItem.key);
+                    const post = PRSS.getItem(nodeItem.key);
                     return (
                         <a className="dropdown-item" href={post.url}>
                             {post.title}
@@ -87,7 +87,10 @@ const Header: FunctionComponent<IProps> = ({
             >
                 <div className="container">
                     <nav className="navbar navbar-expand-lg navbar-dark mx-2">
-                        <a className="navbar-brand logo" href={getSiteUrl()}>
+                        <a
+                            className="navbar-brand logo"
+                            href={PRSS.getSiteUrl()}
+                        >
                             {logoImageUrl ? <img src={logoImageUrl} /> : title}
                         </a>
                         <button
@@ -110,9 +113,9 @@ const Header: FunctionComponent<IProps> = ({
                                 name="header"
                                 ulClassName="navbar-nav"
                                 renderItem={node => {
-                                    const post = getItem(node.key);
+                                    const post = PRSS.getItem(node.key);
                                     const structureItem = post.path
-                                        ? findInStructure(node.key)
+                                        ? PRSS.findInStructure(node.key)
                                         : null;
 
                                     const structureItemChildren =
@@ -125,7 +128,7 @@ const Header: FunctionComponent<IProps> = ({
                                         ...nodeChildren
                                     ];
 
-                                    const isChildItem = hasItem(
+                                    const isChildItem = PRSS.hasItem(
                                         currentPostId,
                                         itemHaystack
                                     );
