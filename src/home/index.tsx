@@ -74,7 +74,7 @@ const Home = data => {
                   <div className="row mt-4 mb-4 g-0">
                     {items.slice(0, 6).map(post => {
                       return (
-                        <div className="col col-sm-12 col-md-6 col-lg-4 card-wrapper mb-4">
+                        <div className="col-12 col-sm-12 col-md-6 col-lg-4 card-wrapper mb-4">
                           <div className="card">
                             <a
                               href={post.url}
