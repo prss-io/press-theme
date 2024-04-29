@@ -5,17 +5,17 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import cx from 'classnames';
 
 interface IProps {
-    children: ReactNode;
-    className?: string;
+  children: ReactNode;
+  className?: string;
 }
 
 const Page: FunctionComponent<IProps> = ({ children, className }) => {
-    return (
-        <div className={cx('page', className)}>
-            {/*<Head />*/}
-            {children}
-        </div>
-    );
+  return (
+    <div className={cx('page', className)}>
+      {/*<Head />*/}
+      {children}
+    </div>
+  );
 };
 
 export default Page;

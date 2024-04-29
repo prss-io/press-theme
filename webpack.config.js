@@ -97,7 +97,7 @@ module.exports = {
   plugins: [
     new PrettierPlugin({
       printWidth: 80,
-      tabWidth: 4,
+      tabWidth: 2,
       semi: true,
       singleQuote: true,
       jsxSingleQuote: false,

@@ -1,76 +1,76 @@
 .page .page-menu {
-    &.mode-prev-next {
-        border-top: 1px dashed #e6e6e6;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        padding-top: 20px;
-        overflow: hidden;
+  &.mode-prev-next {
+    border-top: 1px dashed #e6e6e6;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-top: 20px;
+    overflow: hidden;
 
-        .menu-item-next,
-        .menu-item-prev {
-            position: relative;
-            width: 49%;
+    .menu-item-next,
+    .menu-item-prev {
+      position: relative;
+      width: 49%;
 
-            a {
-                display: block;
-                border: 1px solid #d8d8d8;
-                padding: 10px 15px;
-                border-radius: 3px;
-                text-decoration: none;
+      a {
+        display: block;
+        border: 1px solid #d8d8d8;
+        padding: 10px 15px;
+        border-radius: 3px;
+        text-decoration: none;
 
-                span {
-                    display: block;
-                }
-
-                .menu-item-title {
-                    color: black;
-                }
-
-                .menu-item-label {
-                    color: #007bff;
-                    font-size: 18px;
-                    font-weight: 500;
-                }
-
-                &:hover {
-                    border: 1px solid #007bff;
-                }
-
-                &:active {
-                    border: 1px solid #d8d8d8;
-                }
-            }
+        span {
+          display: block;
         }
 
-        .menu-item-prev {
-            float: left;
-            text-align: left;
-
-            .menu-item-title {
-                padding-left: 25px;
-                &::before {
-                    position: absolute;
-                    content: '←';
-                    left: 15px;
-                    transition: 0.3s right ease-in-out;
-                }
-            }
+        .menu-item-title {
+          color: black;
         }
 
-        .menu-item-next {
-            float: right;
-            text-align: right;
-
-            .menu-item-title {
-                padding-right: 25px;
-                &::after {
-                    position: absolute;
-                    content: '→';
-                    right: 15px;
-                    transition: 0.3s right ease-in-out;
-                }
-            }
+        .menu-item-label {
+          color: #007bff;
+          font-size: 18px;
+          font-weight: 500;
         }
+
+        &:hover {
+          border: 1px solid #007bff;
+        }
+
+        &:active {
+          border: 1px solid #d8d8d8;
+        }
+      }
     }
+
+    .menu-item-prev {
+      float: left;
+      text-align: left;
+
+      .menu-item-title {
+        padding-left: 25px;
+        &::before {
+          position: absolute;
+          content: '←';
+          left: 15px;
+          transition: 0.3s right ease-in-out;
+        }
+      }
+    }
+
+    .menu-item-next {
+      float: right;
+      text-align: right;
+
+      .menu-item-title {
+        padding-right: 25px;
+        &::after {
+          position: absolute;
+          content: '→';
+          right: 15px;
+          transition: 0.3s right ease-in-out;
+        }
+      }
+    }
+  }
 }
