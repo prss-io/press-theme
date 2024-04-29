@@ -24,7 +24,7 @@
             "description": "Message that appears under the hero title"
         },
         "heroImageUrl": {
-            "type": "url",
+            "type": "image",
             "description": "Url for the featured image"
         },
         "sidebarMenu": {
