@@ -10,14 +10,9 @@
 }
 
 .page footer.page-footer .footer-shoutout {
-  opacity: 0.6;
   transition: 0.3s opacity ease-in-out;
   text-decoration: none;
   color: inherit;
-}
-
-.page footer.page-footer .footer-shoutout:hover {
-  opacity: 1;
 }
 
 .page footer.page-footer .footer-shoutout span {
