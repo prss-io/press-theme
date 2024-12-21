@@ -1,5 +1,5 @@
-import '../resources/styles/common.scss';
-import './index.scss';
+import '../resources/styles/common.css';
+import './index.css';
 
 import React from 'react';
 import * as PRSS from 'prss';
@@ -77,39 +77,39 @@ const Home = data => {
                         <div className="col-12 col-sm-12 col-md-6 col-lg-4 card-wrapper mb-4">
                           <div className="card">
                             <a
-                              href={post.url}
+                              href={post?.url}
                               className={cx('card-image', {
-                                'card-has-img': !!post.vars?.featuredImageUrl
+                                'card-has-img': !!post?.vars?.featuredImageUrl
                               })}
                             >
-                              {post.vars?.featuredImageUrl && (
+                              {post?.vars?.featuredImageUrl && (
                                 <img
                                   className="card-img-top"
-                                  src={post.vars?.featuredImageUrl}
-                                  alt={post.vars?.featuredImageAlt}
+                                  src={post?.vars?.featuredImageUrl}
+                                  alt={post?.vars?.featuredImageAlt}
                                   loading="lazy"
                                 />
                               )}
                             </a>
 
                             <div className="card-body">
-                              {post.title && (
-                                <a className="card-title" href={post.url}>
-                                  {PRSS.truncateStr(post.title, 65)}
+                              {post?.title && (
+                                <a className="card-title" href={post?.url}>
+                                  {PRSS.truncateStr(post?.title, 65)}
                                 </a>
                               )}
 
-                              {post.content && (
-                                <p className="card-text mt-1">{post.content}</p>
+                              {post?.content && (
+                                <p className="card-text mt-1">{post?.content}</p>
                               )}
 
-                              {post.createdAt && (
+                              {post?.createdAt && (
                                 <p className="card-text">
                                   <small
                                     className="text-muted"
-                                    title={PRSS.formattedDate(post.createdAt)}
+                                    title={PRSS.formattedDate(post?.createdAt)}
                                   >
-                                    Posted {PRSS.timeAgo(post.createdAt)}
+                                    Posted {PRSS.timeAgo(post?.createdAt)}
                                   </small>
                                 </p>
                               )}

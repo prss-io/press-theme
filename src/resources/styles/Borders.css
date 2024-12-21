@@ -1,0 +1,32 @@
+.page-borders .page-border {
+  background: #292b2d;
+  position: fixed;
+}
+
+.page-borders .page-border.t-border {
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 100%;
+}
+
+.page-borders .page-border.b-border {
+  bottom: 0;
+  left: 0;
+  height: 20px;
+  width: 100%;
+}
+
+.page-borders .page-border.l-border {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 20px;
+}
+
+.page-borders .page-border.r-border {
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 20px;
+}

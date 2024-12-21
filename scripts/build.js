@@ -19,7 +19,7 @@ const {
     author = '',
 } = getPackageJson();
 
-const { title, type, parser, siteVars } = manifest;
+const { title, type, parser, siteVars, isSSR } = manifest;
 
 const start = async () => {
     /**
@@ -53,7 +53,8 @@ const start = async () => {
             type,
             parser,
             siteVars,
-            templates
+            templates,
+            isSSR
         }
 
         fs.writeFileSync(manifestFile, JSON.stringify(newManifest, null, 2));

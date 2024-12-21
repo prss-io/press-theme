@@ -1,4 +1,4 @@
-import '../styles/Header.scss';
+import '../styles/Header.css';
 import React, { FunctionComponent, useEffect, useState, useRef } from 'react';
 import cx from 'classnames';
 import * as PRSS from 'prss';
@@ -67,8 +67,8 @@ const Header: FunctionComponent<IProps> = ({
         {nodeChildren.map(nodeItem => {
           const post = PRSS.getItem(nodeItem.key);
           return (
-            <a className="dropdown-item" href={post.url}>
-              {post.title}
+            <a className="dropdown-item" href={post?.url}>
+              {post?.title}
             </a>
           );
         })}
@@ -111,7 +111,7 @@ const Header: FunctionComponent<IProps> = ({
                 ulClassName="navbar-nav"
                 renderItem={node => {
                   const post = PRSS.getItem(node.key);
-                  const structureItem = post.path
+                  const structureItem = post?.path
                     ? PRSS.findInStructure(node.key)
                     : null;
 
@@ -137,9 +137,9 @@ const Header: FunctionComponent<IProps> = ({
                         className={cx('nav-link', {
                           'dropdown-toggle': nodeChildren && nodeChildren.length
                         })}
-                        href={post.url}
+                        href={post?.url}
                       >
-                        {node.title || post.title}
+                        {node.title || post?.title}
                       </a>
                       {nodeChildren && renderDropdownChildren(nodeChildren)}
                     </li>

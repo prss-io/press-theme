@@ -1,7 +1,8 @@
 const path = require('path');
 const glob = require('glob');
-const PrettierPlugin = require("prettier-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const getPackageJson = require('./scripts/getPackageJson');
 
 const { name, version } = getPackageJson();
@@ -39,6 +40,11 @@ module.exports = {
             return `License information can be found in https://cdn.jsdelivr.net/npm/${name}@${version}/build/${licenseFile}`;
           },
         },
+      }),
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorPluginOptions: {
+          preset: ['default', { discardComments: { removeAll: true } }],
+        }
       })
     ],
   },
@@ -52,31 +58,11 @@ module.exports = {
         },
       },
       {
-        test: /\.s?css$/i,
+        test: /\.(sa|sc|c)ss$/,
         use: [
-          {
-            loader: 'style-loader',
-            /**
-             * Prepend styles
-             */
-            options: {
-              insert: function insertAtTop(element) {
-                var parent = document.querySelector('head');
-                var lastInsertedElement =
-                  window._lastElementInsertedByStyleLoader;
-
-                if (!lastInsertedElement) {
-                  parent.insertBefore(element, parent.firstChild);
-                } else if (lastInsertedElement.nextSibling) {
-                  parent.insertBefore(element, lastInsertedElement.nextSibling);
-                } else {
-                  parent.appendChild(element);
-                }
-
-                window._lastElementInsertedByStyleLoader = element;
-              },
-            },
-          }, 'css-loader', 'sass-loader'],
+          MiniCssExtractPlugin.loader,
+          "css-loader"
+        ],
       },
       {
         test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
@@ -95,13 +81,8 @@ module.exports = {
     "react-dom": "ReactDOM"
   },
   plugins: [
-    new PrettierPlugin({
-      printWidth: 80,
-      tabWidth: 2,
-      semi: true,
-      singleQuote: true,
-      jsxSingleQuote: false,
-      bracketSpacing: true
-    })
+    new MiniCssExtractPlugin({
+      filename: `[name].css`
+    }),
   ]
 };

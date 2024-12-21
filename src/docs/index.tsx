@@ -1,5 +1,5 @@
-import '../resources/styles/common.scss';
-import './index.scss';
+import '../resources/styles/common.css';
+import './index.css';
 
 import React, { useState, useEffect, Fragment } from 'react';
 import * as PRSS from 'prss';

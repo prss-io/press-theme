@@ -1,0 +1,57 @@
+.page.page-blog .hero {
+  height: 300px;
+}
+
+.page.page-blog .card {
+  border: none;
+  height: 160px;
+  border-radius: 0;
+  margin-bottom: 20px;
+}
+
+.page.page-blog .card:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+@media (max-width: 1040px) {
+  .page.page-blog .card {
+    height: unset !important;
+  }
+}
+
+.page.page-blog .card-img-left {
+  max-width: 250px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.page.page-blog .card-img-left img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.page.page-blog .card-img-left:not(.card-has-img) {
+  position: relative;
+}
+
+.page.page-blog .card-img-left:not(.card-has-img)::after {
+  position: absolute;
+  font-family: 'FontAwesome';
+  font-weight: 400;
+  content: '\f1ea';
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 80px;
+  color: white;
+  transition: opacity 0.3s ease-in-out;
+}
+
+@media (max-width: 1040px) {
+  .page.page-blog .card-img-left {
+    width: 100px !important;
+    display: none !important;
+  }
+}

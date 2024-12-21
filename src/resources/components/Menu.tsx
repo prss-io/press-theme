@@ -1,7 +1,7 @@
 import React, { FunctionComponent, ReactNode, Fragment } from 'react';
 import * as PRSS from 'prss';
 import cx from 'classnames';
-import '../styles/Menu.scss';
+import '../styles/Menu.css';
 
 interface IProps {
   name: string;
@@ -78,16 +78,16 @@ const Menu: FunctionComponent<IProps> = ({
           'menu-item-prev': isPrev,
           'menu-item-next': isNext
         })}
-        title={node.title || post.title}
+        title={node.title || post?.title}
       >
         {renderItemLabel ? (
           renderItemLabel(post)
         ) : (
-          <a href={post.url}>
+          <a href={post?.url}>
             <span className="menu-item-title">
               {isPrev ? 'Previous' : 'Next'}
             </span>
-            <span className="menu-item-label">{node.title || post.title}</span>
+            <span className="menu-item-label">{node.title || post?.title}</span>
           </a>
         )}
       </li>
@@ -103,7 +103,7 @@ const Menu: FunctionComponent<IProps> = ({
     const post = PRSS.getItem(node.key);
     return (
       <li
-        title={node.title || post.title}
+        title={node.title || post?.title}
         className={cx({
           active: node.key === PRSS.getProp('item').uuid,
           expanded: isNodeExpanded(node)
@@ -112,7 +112,7 @@ const Menu: FunctionComponent<IProps> = ({
         {renderItemLabel ? (
           renderItemLabel(post)
         ) : (
-          <a href={post.url}>{node.title || post.title}</a>
+          <a href={post?.url}>{node.title || post?.title}</a>
         )}
         {node.children && !!node.children.length && (
           <ul>{node.children.map(parseMenuNode)}</ul>

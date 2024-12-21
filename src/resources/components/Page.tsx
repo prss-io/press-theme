@@ -1,4 +1,4 @@
-import '../styles/Page.scss';
+import '../styles/Page.css';
 
 import React, { FunctionComponent, ReactNode } from 'react';
 //import Head from './Head';

@@ -2,6 +2,7 @@
     "title": "Press",
     "type": "blog",
     "parser": "react",
+    "isSSR": true,
     "siteVars": {
         "logoImageUrl": {
             "type": "image",

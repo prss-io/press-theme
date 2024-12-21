@@ -1,0 +1,51 @@
+.page footer.page-footer {
+  background: #fbfbfb;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.page footer.page-footer .footer-shoutout {
+  opacity: 0.6;
+  transition: 0.3s opacity ease-in-out;
+  text-decoration: none;
+  color: inherit;
+}
+
+.page footer.page-footer .footer-shoutout:hover {
+  opacity: 1;
+}
+
+.page footer.page-footer .footer-shoutout span {
+  line-height: 15px;
+}
+
+.page footer.page-footer .footer-shoutout .prss-tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  letter-spacing: 0px;
+}
+
+.page footer.page-footer .footer-shoutout .prss-tag::after {
+  content: "SSR";
+  border-radius: 5px;
+  border: 1px solid #996a37;
+  color: #996a37;
+  font-weight: 500;
+  font-size: 9px;
+  padding: 0px 5px;
+  display: inline-flex;
+  letter-spacing: normal;
+}
+
+@media (max-width: 1000px) {
+  .page footer.page-footer {
+    height: auto !important;
+    padding: 30px 15px;
+  }
+}

@@ -1,4 +1,4 @@
-import '../styles/Borders.scss';
+import '../styles/Borders.css';
 
 import React, { FunctionComponent } from 'react';
 

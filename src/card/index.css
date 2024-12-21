@@ -1,0 +1,11 @@
+.page.page-post .hero {
+  height: 155px;
+}
+
+.page.page-post .hero .container {
+  display: none;
+}
+
+.page.page-post .post-content {
+  font-size: 20px;
+}

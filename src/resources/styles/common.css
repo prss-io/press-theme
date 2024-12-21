@@ -13,26 +13,26 @@ body {
 .clickable {
   transition: opacity 0.1s ease-in-out;
   cursor: pointer;
+}
 
-  &:hover {
-    opacity: 0.5;
-  }
+.clickable:hover {
+  opacity: 0.5;
+}
 
-  &:active {
-    opacity: 0.3;
-  }
+.clickable:active {
+  opacity: 0.3;
 }
 
 .disabled {
   opacity: 0.5;
+}
 
-  &:hover {
-    opacity: 0.5;
-  }
+.disabled:hover {
+  opacity: 0.5;
+}
 
-  &:active {
-    opacity: 0.5;
-  }
+.disabled:active {
+  opacity: 0.5;
 }
 
 @media (min-width: 34em) {
