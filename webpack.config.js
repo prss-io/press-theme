@@ -77,6 +77,7 @@ module.exports = {
     hints: false
   },
   externals: {
+    "prss": "PRSS",
     "react": "React",
     "react-dom": "ReactDOM"
   },
