@@ -18,6 +18,7 @@ const entry = glob.sync("./src/*/index.+(js|jsx|ts|tsx)")
 module.exports = {
   mode: "production",
   entry,
+  devtool: 'source-map',
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'build'),
