@@ -47,22 +47,6 @@ const Post = data => {
           <div className="row">
             <div className="col">
               <div className="content">
-                {/*<div className="post-title-container mb-2">
-                                    <h1 className="mb-0">{postTitle}</h1>
-                                    {createdAt && (
-                                        <div
-                                            className="text-muted mt-3 date post-date d-flex align-items-center"
-                                            title={PRSS.timeAgo(createdAt)}
-                                        >
-                                            <i className={`fa fa-clock-o mr-2`}></i>
-                                            <span>
-                                                Published on{' '}
-                                                {PRSS.formattedDate(createdAt)}
-                                            </span>
-                                        </div>
-                                    )}
-                                    </div>*/}
-
                 <div className="post-title-container mb-2">
                   <div className="row justify-content-between">
                     <div className="col-12 col-lg d-lg-flex flex-column justify-content-center">
@@ -70,7 +54,7 @@ const Post = data => {
                       {createdAt && (
                         <div
                           className="text-muted mt-3 date post-date d-flex align-items-center"
-                          title={PRSS.timeAgo(createdAt)}
+                          title={PRSS.formattedDate(createdAt)}
                         >
                           <i className={`fa fa-clock-o mr-2`}></i>
                           <span>

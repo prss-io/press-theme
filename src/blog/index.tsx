@@ -93,7 +93,7 @@ const Blog = data => {
                                   className="text-muted"
                                   title={PRSS.formattedDate(post?.createdAt)}
                                 >
-                                  Posted {PRSS.timeAgo(post?.createdAt)}
+                                  Posted {PRSS.formattedDate(post?.createdAt)}
                                 </small>
                               </p>
                             )}
