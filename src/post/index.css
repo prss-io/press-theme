@@ -8,24 +8,42 @@
 .page.page-post h4,
 .page.page-post h5,
 .page.page-post h6 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+  text-rendering: optimizeLegibility;
 }
 
 .page.page-post h1 {
-  font-size: 31px;
-  font-weight: 400;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.page.page-post h2 {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-family: "Work Sans", serif;
 }
 
 .page.page-post h3 {
-  font-size: 24px;
   font-weight: 700;
-  margin: 30px 0;
+  margin-bottom: 15px;
+  margin-top: 40px;
+  font-family: "Work Sans", serif;
+}
+
+.page.page-post h4:not(.explore-more) {
+  margin-top: 25px;
+}
+
+.page.page-post h4 {
+  font-family: "Work Sans", serif;
 }
 
 .page.page-post h5 {
   margin-top: 35px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  font-family: "Work Sans", serif;
 }
 
 .page.page-post strong {
@@ -149,18 +167,16 @@
   border: none;
 }
 
-.page.page-post h4.section-title.explore-more {
-  border-bottom: 2px solid #007bff;
-}
-
 .page.page-post h4.section-title.explore-more span {
-  color: white;
-  background: #007bff;
-  padding: 5px 11px;
-  margin-left: 15px;
+  padding: 0;
   width: 174px;
   height: 50px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.page.page-post main .content .post-inner-content > *:first-child {
+  margin-top: 0;
 }

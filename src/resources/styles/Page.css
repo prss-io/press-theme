@@ -188,6 +188,8 @@
   overflow: hidden;
   position: relative;
   padding: 3px;
+  border: none;
+  background-color: #fbfbfb;
 }
 
 .page .card a.card-title {
@@ -196,7 +198,7 @@
   margin: 0;
   font-size: 22px;
   font-family: 'Roboto';
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: 10px;
   display: block;
   line-height: 30px;
