@@ -1,7 +1,7 @@
 {
   "name": "@hodgef/press-theme",
   "title": "Press",
-  "version": "3.0.18",
+  "version": "3.0.19",
   "author": "Francisco Hodge",
   "homepage": "https://github.com/prss-io/press-theme",
   "license": "MIT",
@@ -91,16 +91,10 @@
   },
   "templates": [
     "blog",
-    "blog",
-    "card",
     "card",
     "docs",
-    "docs",
-    "home",
     "home",
     "page",
-    "page",
-    "post",
     "post"
   ],
   "isSSR": true

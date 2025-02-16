@@ -40,7 +40,7 @@ const start = async () => {
          * Write manifest file
          */
         const templates = fs.readdirSync(buildFolder)
-        .filter(file => file.includes('.js') && !file.includes('.js.LICENSE'))
+        .filter(file => file.includes('.js') && !file.includes('.js.LICENSE') && !file.includes('.js.map'))
         .map(file => file.split('.')[0]);
 
         const newManifest = {

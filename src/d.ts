@@ -25,7 +25,7 @@ interface IVars {
      */
     asideHtml?: string;
     sidebarAsideHtml?: string;
-    inlineAside?: string;
+    inlineAsideHtml?: string;
     footerCta?: string;
     warningHtml?: string;
     contentFooterHtml?: string;
