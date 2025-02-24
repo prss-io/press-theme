@@ -60,10 +60,14 @@
 }
 
 .page.page-post .hero {
-  height: 140px;
+  height: 123px;
 }
 
 .page.page-post .post-content {
+  font-size: 20px;
+}
+
+.page.page-post .post-content p {
   font-size: 20px;
 }
 
@@ -103,6 +107,7 @@
   background-position: center;
   margin: 5px;
   border-radius: 5px;
+  position: relative;
 }
 
 .page.page-post .post-date {
@@ -113,7 +118,7 @@
 .page.page-post .post-title-container {
   padding: 40px;
   background: #f9f9f9;
-  height: 196px;
+  min-height: 196px;
   display: flex;
 }
 
@@ -179,4 +184,25 @@
 
 .page.page-post main .content .post-inner-content > *:first-child {
   margin-top: 0;
+}
+
+.page.page-post .featured-image-author {
+  background: rgba(0, 0, 0, .5);
+  border-radius: 5px;
+  bottom: 10px;
+  font-size: 10px;
+  padding: 5px 10px;
+  position: absolute;
+  right: 10px;
+  user-select: none;
+  color: white;
+  opacity: 0.8;
+}
+
+.page.page-post .featured-image-author a {
+  color: white;
+}
+
+.page.page-post .featured-image-author:hover {
+  opacity: 1;
 }

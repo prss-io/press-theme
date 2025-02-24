@@ -22,9 +22,11 @@ const Post = data => {
     heroMessage,
     heroImageUrl,
     featuredImageUrl,
+    featuredImageAuthor,
+    featuredImageAuthorLink,
     featuredImageAlt,
     sidebarAsideHtml
-  } = PRSS.getProp('vars') as IVars;
+  } = PRSS.getProp('vars') as any;
 
   const links = PRSS.getJsonProp('vars.links') as ILink[];
 
@@ -73,11 +75,19 @@ const Post = data => {
 
                 {featuredImageUrl && (
                   <div
-                    className="featured-image"
+                    className="featured-image mb-4"
                     style={{
                       backgroundImage: `url(${featuredImageUrl})`
                     }}
-                  />
+                  >
+                    {featuredImageAuthor && featuredImageAuthorLink && (
+                      <div
+                        className="featured-image-author mt-3 date post-date d-flex align-items-center"
+                      >
+                        <span>Photo by{' '}<a href={featuredImageAuthorLink} target="_blank">{featuredImageAuthor} via Pexels</a></span>
+                      </div>
+                    )}
+                  </div>
                 )}
 
                 {content && content.trim().length && (
