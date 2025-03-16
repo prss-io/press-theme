@@ -1,7 +1,7 @@
 {
   "name": "@hodgef/press-theme",
   "title": "Press",
-  "version": "3.0.21",
+  "version": "3.0.25",
   "author": "Francisco Hodge",
   "homepage": "https://github.com/prss-io/press-theme",
   "license": "MIT",
@@ -19,6 +19,18 @@
     "featuredImageAlt": {
       "type": "image",
       "description": "Path for the post's alt featured image"
+    },
+    "faviconImageUrl": {
+      "type": "image",
+      "description": "Path for the site favicon (browser tab icon)"
+    },
+    "truncateTitleLength": {
+      "type": "string",
+      "description": "Max length for the post's title in article cards"
+    },
+    "truncateContentLength": {
+      "type": "string",
+      "description": "Max length for the post's content in article cards"
     },
     "heroTitle": {
       "type": "string",

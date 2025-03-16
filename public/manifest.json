@@ -16,6 +16,18 @@
             "type": "image",
             "description": "Path for the post's alt featured image"
         },
+        "faviconImageUrl": {
+            "type": "image",
+            "description": "Path for the site favicon (browser tab icon)"
+        },
+          "truncateTitleLength": {
+            "type": "string",
+            "description": "Max length for the post's title in article cards"
+        },
+          "truncateContentLength": {
+            "type": "string",
+            "description": "Max length for the post's content in article cards"
+        },
         "heroTitle": {
             "type": "string",
             "description": "Hero title for the page"

@@ -6,6 +6,7 @@ interface IProps {}
 
 const Head: FunctionComponent<IProps> = () => {
     const {
+        faviconImageUrl,
         metaDescription,
         metaRobots,
         metaLocale,
@@ -17,6 +18,10 @@ const Head: FunctionComponent<IProps> = () => {
 
     return (
         <Helmet>
+            {faviconImageUrl && (
+                <link rel="icon" href={faviconImageUrl} />
+            )}
+
             {metaDescription && (
                 <meta name="description" content={metaDescription} />
             )}

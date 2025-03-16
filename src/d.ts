@@ -1,7 +1,10 @@
 interface IVars {
+    faviconImageUrl?: string;
     logoImageUrl?: string;
     featuredImageUrl?: string;
     featuredImageAlt?: string;
+    truncateTitleLength?: string;
+    truncateContentLength?: string;
 
     /**
      * Hero

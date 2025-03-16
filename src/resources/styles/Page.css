@@ -199,7 +199,7 @@
   margin: 0;
   font-size: 22px;
   font-family: 'Roboto';
-  font-weight: 500;
+  font-weight: 700;
   margin-bottom: 10px;
   display: block;
   line-height: 30px;
@@ -251,7 +251,6 @@
   background-color: #e6e6e6;
   border-radius: 5px;
   overflow: hidden;
-  min-height: 180px;
 }
 
 @keyframes ind-blink {
