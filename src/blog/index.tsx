@@ -57,7 +57,7 @@ const Blog = data => {
                   />
                 )}
 
-                <section className="mb-3">
+                <section className="mb-3 blog-items">
                   <div>
                     <Aside name="inlineAsideHtml" />
                     {items.map(post => {
