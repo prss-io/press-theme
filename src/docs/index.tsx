@@ -177,34 +177,33 @@ const Docs = data => {
             <div className={`col ${isset(sidebarMenu) ? 'col-md-9' : ''}`}>
               <div className="content">
                 <div className="content-top">
-                  {isset(content || warningHtml) && (
-                    <section className="post-content mb-3">
-                      {warningHtml && (
-                        <div
-                          className="alert alert-warning alert-dismissible fade show"
-                          role="alert"
-                          dangerouslySetInnerHTML={{
-                            __html: warningHtml
-                          }}
-                        />
-                      )}
-
+                  <section className="post-content mb-3">
+                    {warningHtml ? (
                       <div
-                        className="post-inner-content mb-5"
+                        className="alert alert-warning alert-dismissible fade show"
+                        role="alert"
                         dangerouslySetInnerHTML={{
-                          __html: content
+                          __html: warningHtml
                         }}
                       />
-                      {isset(footerCta) && (
-                        <div
-                          className="footer-cta"
-                          dangerouslySetInnerHTML={{
-                            __html: footerCta
-                          }}
-                        />
-                      )}
-                    </section>
-                  )}
+                    ) : null}
+
+                    <div
+                      className="post-inner-content mb-5"
+                      dangerouslySetInnerHTML={{
+                        __html: content
+                      }}
+                    />
+                    
+                    {isset(footerCta) ? (
+                      <div
+                        className="footer-cta"
+                        dangerouslySetInnerHTML={{
+                          __html: footerCta
+                        }}
+                      />
+                    ) : null}
+                  </section>
 
                   {isset(sidebarMenu) && (
                     <section>

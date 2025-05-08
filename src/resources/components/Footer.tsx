@@ -3,8 +3,6 @@ import '../styles/Footer.css';
 import React, { FunctionComponent } from 'react';
 import * as PRSS from 'prss';
 
-import prssImg from '../../resources/images/prss-sm.png';
-
 interface IProps {}
 
 const Footer: FunctionComponent<IProps> = () => {
@@ -43,8 +41,8 @@ const Footer: FunctionComponent<IProps> = () => {
               >
                 <img
                   className="prss-footer-image mr-1"
-                  src={prssImg}
-                  width={15}
+                  src="https://prss-static.volted.co/images/logo.png"
+                  width={16}
                 />
                 <span className="font-weight-bold prss-tag">PRSS Site Creator</span>
               </a>

@@ -40,14 +40,12 @@ const Post = data => {
           <div className="row">
             <div className="col">
               <div className="content">
-                {content && content.trim().length && (
-                  <section
-                    className="post-content mb-3 pb-5"
+                <section className="post-content mb-3 pb-5">
+                  <div className="post-inner-content"
                     dangerouslySetInnerHTML={{
                       __html: content
-                    }}
-                  />
-                )}
+                    }}></div>
+                </section>
               </div>
             </div>
             {sidebarHtml && (
