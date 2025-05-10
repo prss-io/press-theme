@@ -58,13 +58,14 @@ const Home = data => {
           <div className="row">
             <div className="col">
               <div className="content">
-                {content && content.trim().length && (
-                  <section
+                <section className="post-content">
+                  <div
+                    className="post-inner-content"
                     dangerouslySetInnerHTML={{
                       __html: content
                     }}
                   />
-                )}
+                </section>
 
                 <section className="mb-3">
                   <h2 className="section-title">
