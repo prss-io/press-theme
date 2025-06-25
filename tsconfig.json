@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "lib": ["es6", "dom"],
+        "lib": ["es2020", "dom"],
         "noImplicitAny": false,
         "noImplicitThis": true,
         "strictNullChecks": false,
@@ -8,7 +8,11 @@
         "esModuleInterop": true,
         "noUnusedLocals": false,
         "allowSyntheticDefaultImports": true,
-        "jsx": "react"
+        "jsx": "react",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/_common/*"]
+        }
     },
     "include": ["./src"]
 }

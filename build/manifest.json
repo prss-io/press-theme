@@ -1,9 +1,10 @@
 {
-  "name": "@hodgef/press-theme",
+  "name": "@prss/press-theme",
   "title": "Press",
-  "version": "3.0.34",
+  "version": "3.1.0",
   "author": "Francisco Hodge",
   "homepage": "https://github.com/prss-io/press-theme",
+  "description": "Press Theme for PRSS",
   "license": "MIT",
   "type": "blog",
   "parser": "react",
@@ -20,18 +21,6 @@
       "type": "image",
       "description": "Path for the post's alt featured image"
     },
-    "faviconImageUrl": {
-      "type": "image",
-      "description": "Path for the site favicon (browser tab icon)"
-    },
-    "truncateTitleLength": {
-      "type": "string",
-      "description": "Max length for the post's title in article cards"
-    },
-    "truncateContentLength": {
-      "type": "string",
-      "description": "Max length for the post's content in article cards"
-    },
     "heroTitle": {
       "type": "string",
       "description": "Hero title for the page"
@@ -43,6 +32,18 @@
     "heroImageUrl": {
       "type": "image",
       "description": "Url for the featured image"
+    },
+    "faviconImageUrl": {
+      "type": "image",
+      "description": "Path for the site favicon (browser tab icon)"
+    },
+    "truncateTitleLength": {
+      "type": "string",
+      "description": "Max length for the post's title in article cards"
+    },
+    "truncateContentLength": {
+      "type": "string",
+      "description": "Max length for the post's content in article cards"
     },
     "sidebarMenu": {
       "type": "string",
@@ -109,5 +110,7 @@
     "page",
     "post"
   ],
-  "isSSR": true
+  "isSSR": true,
+  "combinedCSS": true,
+  "clientScript": true
 }

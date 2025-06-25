@@ -1,10 +1,5 @@
-import '../resources/styles/common.css';
-import './index.css';
-
 import React from 'react';
 import * as PRSS from 'prss';
-
-import cx from 'classnames';
 
 import Header from '../resources/components/Header';
 import Footer from '../resources/components/Footer';
@@ -18,27 +13,27 @@ const Post = data => {
   (window as any).PRSS = PRSS;
 
   const {
-    heroTitle,
-    heroMessage,
+    //heroTitle,
+    //heroMessage,
     heroImageUrl,
     featuredImageUrl,
     featuredImageAuthor,
     featuredImageAuthorLink,
-    featuredImageAlt,
+    //featuredImageAlt,
     sidebarAsideHtml
   } = PRSS.getProp('vars') as any;
 
-  const links = PRSS.getJsonProp('vars.links') as ILink[];
+  //const links = PRSS.getJsonProp('vars.links') as ILink[];
 
   const { content, uuid: postId, title: postTitle, createdAt } = PRSS.getProp(
     'item'
   );
-  const { title, url } = PRSS.getProp('site');
+  //const { title, url } = PRSS.getProp('site');
   const sidebarHtml = PRSS.getProp('sidebarHtml');
-  const headerHtml = PRSS.getProp('headerHtml');
+  //const headerHtml = PRSS.getProp('headerHtml');
 
-  const items = PRSS.getItems('post').filter(item => item.uuid !== postId);
-  const shuffledItem = PRSS.shuffle(items)[0];
+  //const items = PRSS.getItems('post').filter(item => item.uuid !== postId);
+  //const shuffledItem = PRSS.shuffle(items)[0];
 
   return (
     <Page className="page-post">
@@ -99,7 +94,7 @@ const Post = data => {
                   />
                 </section>
 
-                {shuffledItem && (
+                {/*shuffledItem && (
                   <section className="mb-3">
                     <h4 className="section-title explore-more">
                       <span>Explore More</span>
@@ -145,7 +140,7 @@ const Post = data => {
                       </div>
                     </div>
                   </section>
-                )}
+                )*/}
               </div>
             </div>
             {isset(sidebarHtml || sidebarAsideHtml) && (
