@@ -1,5 +1,5 @@
 import React, { FunctionComponent, ReactNode, Fragment } from 'react';
-import * as PRSS from 'prss';
+import * as PRSS from "@prss/ui";
 import cx from 'classnames';
 import '../styles/Menu.css';
 

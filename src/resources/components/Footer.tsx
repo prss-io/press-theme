@@ -1,7 +1,7 @@
 import '../styles/Footer.css';
 
 import React, { FunctionComponent } from 'react';
-import * as PRSS from 'prss';
+import * as PRSS from "@prss/ui";
 
 interface IProps {}
 

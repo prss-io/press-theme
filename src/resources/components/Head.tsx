@@ -1,6 +1,6 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
-import * as PRSS from 'prss';
+import * as PRSS from "@prss/ui";
 
 interface IProps {}
 
