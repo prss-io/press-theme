@@ -4,6 +4,8 @@
 	http://jedwatson.github.io/classnames
 */
 
+/*! For license information please see ContentRenderer.js.LICENSE.txt */
+
 /**
  * @license React
  * react.production.min.js

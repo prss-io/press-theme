@@ -89,6 +89,7 @@ module.exports = {
   },
   externals: {
     "prss": "PRSS",
+    "@prss/ui": "PRSS",
     "react": "React",
     "react-dom": "ReactDOM",
     "react-dom/client": "ReactDOM"
