@@ -1,5 +1,5 @@
-import '../styles/Page.css';
 import "@prss/ui/build/blocks.css";
+import '../styles/Page.css';
 
 import React, { FunctionComponent, ReactNode } from 'react';
 //import Head from './Head';

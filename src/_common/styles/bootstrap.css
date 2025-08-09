@@ -6117,9 +6117,9 @@ button.bg-dark:hover {
   border-top-left-radius: 0.25rem !important;
   border-bottom-left-radius: 0.25rem !important;
 }
-.rounded-lg {
+/*.rounded-lg {
   border-radius: 0.3rem !important;
-}
+}*/
 .rounded-circle {
   border-radius: 50% !important;
 }
