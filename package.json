@@ -1,6 +1,6 @@
 {
   "name": "@prss/press-theme",
-  "version": "3.2.3",
+  "version": "3.2.4",
   "description": "Press Theme for PRSS",
   "main": "build/index.js",
   "scripts": {
@@ -39,6 +39,7 @@
     "@babel/preset-typescript": "^7.10.4",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.23.0",
+    "@prss/ui": "2.2.0",
     "@typescript-eslint/eslint-plugin": "^8.28.0",
     "@typescript-eslint/parser": "^8.28.0",
     "autoprefixer": "^10.4.21",
@@ -64,7 +65,6 @@
     "mini-css-extract-plugin": "^1.6.2",
     "postcss": "^8.5.3",
     "postcss-loader": "^8.1.1",
-    "@prss/ui": "^2.1.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-helmet": "^6.1.0",
