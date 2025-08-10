@@ -8,7 +8,7 @@ import Hero from '../resources/components/Hero';
 import { isset } from '../resources/services/utils';
 import Aside from '../resources/components/Aside';
 
-import ContentRenderer from "@prss/ui/build/ContentRenderer";
+import { ContentRenderer } from "@prss/ui";
 
 const Post = data => {
   PRSS.init(data);

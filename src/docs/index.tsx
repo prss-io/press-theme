@@ -10,7 +10,7 @@ import Menu from '../resources/components/Menu';
 import Aside from '../resources/components/Aside';
 import { isset } from '../resources/services/utils';
 
-import ContentRenderer from "@prss/ui/build/ContentRenderer";
+import { ContentRenderer } from "@prss/ui";
 
 const Docs = data => {
   PRSS.init(data);
