@@ -1,5 +1,4 @@
 import "./vendor";
-import "@prss/ui/build/client";
 
 // This script handles the dark mode toggle functionality
 // and saves the user's preference in local storage.
