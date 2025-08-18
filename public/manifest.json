@@ -30,6 +30,10 @@
             "type": "image",
             "description": "Url for the featured image"
         },
+        "docsImageUrl": {
+            "type": "image",
+            "description": "Image URL to show in documentation pages instead of title"
+        },
         "faviconImageUrl": {
             "type": "image",
             "description": "Path for the site favicon (browser tab icon)"

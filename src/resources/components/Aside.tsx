@@ -8,11 +8,11 @@ interface IProps {
   name: string;
 }
 
-const Aside: FunctionComponent<IProps> = ({ name }) => {
+const Aside: FunctionComponent<IProps> = ({ name, className = "" }) => {
   const vars = PRSS.getProp('vars');
   const asideName = vars[name];
   if (!asideName) return null;
-  return <div className={cx('page-aside', name)} dangerouslySetInnerHTML={{ __html: asideName }} />;
+  return <div className={cx('page-aside', name, className)} dangerouslySetInnerHTML={{ __html: asideName }} />;
 };
 
 export default Aside;

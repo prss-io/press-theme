@@ -2522,7 +2522,7 @@ fieldset:disabled a.btn {
 .btn-light:not(:disabled):not(.disabled):active:focus,
 .show > .btn-light.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
-}
+}*/
 .btn-dark {
   color: #fff;
   background-color: #343a40;
@@ -2554,8 +2554,8 @@ fieldset:disabled a.btn {
 .btn-dark:not(:disabled):not(.disabled):active:focus,
 .show > .btn-dark.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
-}*/
-.btn-outline-primary {
+}
+/*.btn-outline-primary {
   color: #007bff;
   border-color: #007bff;
 }
@@ -2764,7 +2764,7 @@ fieldset:disabled a.btn {
 .btn-outline-light:not(:disabled):not(.disabled):active:focus,
 .show > .btn-outline-light.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
-}
+}*/
 .btn-outline-dark {
   color: #343a40;
   border-color: #343a40;
