@@ -840,3 +840,7 @@ img:not(.prss-footer-image),.zoom-img-wrap:not(.prss-footer-image) {
     max-width: 250px !important;
   }
 }
+
+.page .page-menu li.active ul {
+  background: rgba(0, 0, 0, 0.03);
+}

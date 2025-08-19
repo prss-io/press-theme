@@ -50,7 +50,7 @@ const Docs = data => {
   };
 
   // Custom menu item renderer for documentation sidebar
-  const renderDocMenuItem = (node: any) => {
+  const renderDocMenuItem = (node: any, level: number = 0) => {
     const post = PRSS.getItem(node.key);
     const nodeChildren = node?.children || [];
     const hasChildren = nodeChildren.length > 0;
@@ -64,34 +64,18 @@ const Docs = data => {
             "block py-2 px-3 rounded-md transition-colors",
             isActive 
               ? "text-primary font-medium" 
-              : "hover:bg-gray-100"
+              : "hover:text-primary hover:font-medium"
           )}
+          style={{ paddingLeft: `${12 + (level * 16)}px` }}
         >
           {node.title || post?.title}
         </a>
         
         {hasChildren && (
-          <ul className="ml-0 pl-0 bg-muted">
-            {nodeChildren.map(childNode => {
-              const childPost = PRSS.getItem(childNode.key);
-              const isChildActive = childNode.key === postId;
-              
-              return (
-                <li key={childNode.key} className={cx("", isChildActive ? "active" : "")}>
-                  <a 
-                    href={childPost?.url}
-                    className={cx(
-                      "block py-1.5 px-3 rounded-md transition-colors",
-                      isChildActive 
-                        ? "text-primary font-medium" 
-                        : "hover:bg-gray-100 text-gray-600"
-                    )}
-                  >
-                    {childNode.title || childPost?.title}
-                  </a>
-                </li>
-              );
-            })}
+          <ul className="ml-0 pl-0">
+            {nodeChildren.map(childNode => 
+              renderDocMenuItem(childNode, level + 1)
+            )}
           </ul>
         )}
       </li>
