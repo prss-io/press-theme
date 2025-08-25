@@ -34,7 +34,12 @@ const Home = data => {
       <Header />
       <Hero imageUrl={heroImageUrl}>
         {heroTitle && <h1 className="hero-title">{heroTitle}</h1>}
-        {heroMessage && <div className="hero-message mt-2">{heroMessage}</div>}
+        {heroMessage && (
+          <ContentRenderer 
+            content={heroMessage}
+            className="hero-message mt-2"
+          />
+        )}
         {links && (
           <div className="links mt-4">
             {links.map((link, index) => (
