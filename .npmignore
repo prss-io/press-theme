@@ -32,3 +32,14 @@ CHANGELOG.md
 README.md
 webpack.config.js
 babel.config.js
+
+# Agent/editor/local tooling (never publish)
+.agents
+.vscode
+.prettierrc
+components.json
+eslint.config.mjs
+postcss.config.cjs
+tailwind.config.cjs
+tsconfig.json
+clientScript.webpack.config.js
